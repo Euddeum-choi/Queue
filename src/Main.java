@@ -31,7 +31,7 @@ public class Main {
                     arrayQueue.printQueue();
                     break;
                 default:
-                    System.out.println("잘못된 입력입니다.");
+                    System.out.println("잘못된 입력입니다!");
             }
         }
     }

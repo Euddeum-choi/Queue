@@ -6,6 +6,7 @@ public class ArrayQueue implements Queue{
     private char queueArr[];
 
     public ArrayQueue(int queueSize){
+        this.queueSize = queueSize;
         this.queueArr = new char[queueSize];
         this.front = -1;
         this.rear = -1;
@@ -68,6 +69,7 @@ public class ArrayQueue implements Queue{
         this.front = -1;
         this.rear = -1;
         this.queueArr = new char[queueSize];
+        System.out.println("전체 삭제 완료!");
     }
     public void printQueue(){
         for(int i =0; i == rear; i++){
