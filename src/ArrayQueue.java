@@ -1,11 +1,11 @@
-public class ArrayQueue implements Queue{
+public class ArrayQueue implements Queue {
     private int front;
     private int rear;
 
     private int queueSize;
     private char queueArr[];
 
-    public ArrayQueue(int queueSize){
+    public ArrayQueue(int queueSize) {
         this.queueSize = queueSize;
         this.queueArr = new char[queueSize];
         this.front = -1;
@@ -14,32 +14,28 @@ public class ArrayQueue implements Queue{
 
     @Override
     public boolean isEmpty() {
-        if(front== rear){
-            System.out.println("큐가 비었습니다.");
+        if (front == rear) {
             return true;
-        }else {
-            System.out.println("큐 안에 데이터가 있습니다!");
+        } else
             return false;
-        }
     }
+
     @Override
     public boolean isFull() {
-        if(rear == queueSize-1){
-            System.out.println("큐가 꽉 찼습니다!");
+        if (rear == queueSize - 1) {
             return true;
-        }else {
-            System.out.println("큐에 더 넣을 수 있습니다!");
+        } else {
             return false;
         }
     }
 
     @Override
     public void enqueue(char item) {
-        if(front == -1){
+        if (front == -1) {
             ++front;
             ++rear;
             queueArr[rear] = item;
-        }else {
+        } else {
             ++rear;
             queueArr[rear] = item;
         }
@@ -47,11 +43,11 @@ public class ArrayQueue implements Queue{
 
     @Override
     public char dequeue() {
-        if(isEmpty()){
+        if (isEmpty()) {
             System.out.println("뺄 값이 없습니다.");
-        }else {
-            for(int i = front; i == rear-1; i++ ){
-                queueArr[i] = queueArr[i+1];
+        } else {
+            for (int i = front; i == rear - 1; i++) {
+                queueArr[i] = queueArr[i + 1];
                 front = -1;
             }
         }
@@ -71,9 +67,14 @@ public class ArrayQueue implements Queue{
         this.queueArr = new char[queueSize];
         System.out.println("전체 삭제 완료!");
     }
-    public void printQueue(){
-        for(int i =0; i == rear; i++){
-            System.out.print(queueArr[i] + " ");
+
+    public void printQueue() {
+        if (!isEmpty()) {
+            for(int i = front; i == rear; i++){
+                System.out.println(queueArr[i] + " ");
+            }
+
+
         }
     }
 }
