@@ -1,3 +1,5 @@
+import javax.xml.bind.SchemaOutputResolver;
+
 public class ArrayQueue implements Queue {
     private int front;
     private int rear;
@@ -48,8 +50,8 @@ public class ArrayQueue implements Queue {
         } else {
             for (int i = front; i == rear - 1; i++) {
                 queueArr[i] = queueArr[i + 1];
-                front = -1;
             }
+            front = -1;
         }
         return queueArr[rear];
     }
@@ -69,12 +71,16 @@ public class ArrayQueue implements Queue {
     }
 
     public void printQueue() {
-        if (!isEmpty()) {
-            for(int i = front; i == rear; i++){
-                System.out.println(queueArr[i] + " ");
+        if(isEmpty()){
+            System.out.println("큐가 비어있습니다!");
+        }else {
+            System.out.println("=============================");
+            System.out.print(" 큐의 값 : ");
+            for(int i = front; i<=rear; i++){
+                System.out.print(queueArr[i]);
             }
-
-
+            System.out.println();
+            System.out.println("==============================");
         }
     }
 }
